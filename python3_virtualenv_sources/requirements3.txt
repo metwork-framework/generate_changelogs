@@ -1,0 +1,7 @@
+-e git+https://github.com/metwork-framework/aiohttp_github_helpers.git@5a6b238dc8227a8be532cc00614acd4d394e8392#egg=aiohttp_github_helpers
+-e git+https://github.com/metwork-framework/auto-changelog.git@206d79fb1df0053b1ea9a01478b3a54a5bd921c8#egg=auto_changelog
+certifi==2018.10.15
+docopt==0.6.2
+gitdb2==2.0.5
+GitPython==2.1.11
+smmap2==2.0.5
