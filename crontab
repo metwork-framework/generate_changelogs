@@ -1,2 +1,1 @@
-0 2 * * * {{MFSERV_HOME}}/bin/cronwrap.sh -l -e -- plugin_wrapper generate_changelogs changelogs.sh >>{{MODULE_RUNTIME_HOME}}/log/changelogs.log 2>&1
-#
+0 2 * * * {{MFSERV_HOME}}/bin/cronwrap.sh --lock --log-capture-to={{MFMODULE_RUNTIME_HOME}}/log/changeslog.log -- plugin_wrapper generate_changelogs changelogs.sh

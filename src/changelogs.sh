@@ -3,19 +3,21 @@
 REPOS_LEVEL4=`metwork_repos.py --minimal-level=4 |xargs`
 REPOS_LEVEL3=`metwork_repos.py --minimal-level=3 |xargs`
 
-LATEST_RELEASE=origin/release_0.6
-LATEST_TAGS=v0.6.*
-BEFORE_RELEASE=origin/release_0.5
-
 for REPO in ${REPOS_LEVEL4}; do
-    _generate_changelog.sh "${REPO}" integration origin/integration origin/integration "${BEFORE_RELEASE}" "${LATEST_TAGS}" CHANGELOG.md
-    _generate_changelog.sh "${REPO}" integration origin/release_0.5 origin/release_0.5 origin/release_0.4 "v0.5.*" CHANGELOG-0.5.md
-    _generate_changelog.sh "${REPO}" integration origin/release_0.4 origin/release_0.4 origin/release_0.3 "v0.4.*" CHANGELOG-0.4.md
-    _generate_changelog.sh "${REPO}" release_0.5 origin/release_0.5 origin/release_0.5 origin/release_0.4 "v0.5.*" CHANGELOG.md
-    _generate_changelog.sh "${REPO}" release_0.6 origin/release_0.6 origin/release_0.6 origin/release_0.5 "v0.6.*" CHANGELOG.md
-done
+    _generate_changelog.sh "${REPO}" integration origin/integration origin/integration origin/release_0.9 xxxxxxxx CHANGELOG.md
+    _generate_changelog.sh "${REPO}" integration origin/release_0.9 origin/release_0.9 origin/release_0.8 "v0.9.*" CHANGELOG-0.9.md
+    _generate_changelog.sh "${REPO}" integration origin/release_0.8 origin/release_0.8 origin/release_0.7 "v0.8.*" CHANGELOG-0.8.md
+    _generate_changelog.sh "${REPO}" integration origin/release_0.7 origin/release_0.7 origin/release_0.6 "v0.7.*" CHANGELOG-0.7.md
 
-exit 0
+    _generate_changelog.sh "${REPO}" release_0.9 origin/release_0.9 origin/release_0.9 origin/release_0.8 "v0.9.*" CHANGELOG.md
+    _generate_changelog.sh "${REPO}" release_0.9 origin/release_0.8 origin/release_0.8 origin/release_0.7 "v0.8.*" CHANGELOG-0.8.md
+    _generate_changelog.sh "${REPO}" release_0.9 origin/release_0.7 origin/release_0.7 origin/release_0.6 "v0.7.*" CHANGELOG-0.7.md
+
+    _generate_changelog.sh "${REPO}" release_0.8 origin/release_0.8 origin/release_0.8 origin/release_0.7 "v0.8.*" CHANGELOG.md
+    _generate_changelog.sh "${REPO}" release_0.8 origin/release_0.7 origin/release_0.7 origin/release_0.6 "v0.7.*" CHANGELOG-0.7.md
+
+    _generate_changelog.sh "${REPO}" release_0.7 origin/release_0.7 origin/release_0.7 origin/release_0.6 "v0.7.*" CHANGELOG.md
+done
 
 for REPO in ${REPOS_LEVEL3}; do
     FOUND=0
@@ -26,6 +28,6 @@ for REPO in ${REPOS_LEVEL3}; do
         fi
     done
     if test ${FOUND} -eq 0; then
-        _generate_changelog.sh "${REPO}" master master master "nothing here" "v*" CHANGELOG.md
+        _generate_changelog.sh "${REPO}" master master master "nothinghere" "v*" CHANGELOG.md
     fi
 done

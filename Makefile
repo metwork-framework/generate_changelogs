@@ -1,4 +1,4 @@
-include $(MFCOM_HOME)/share/plugin.mk
+include $(MFEXT_HOME)/share/plugin.mk
 
 custom::
-	cd src && make
+	cd src && make all
